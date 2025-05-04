@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+    body {
+      background-color: #f8f8f8;
+      color: #111;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a,
+    #cart-btn {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #111;
+      transition: color 0.3s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    nav a:hover,
+    #cart-btn:hover {
+      color: #666;
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: #eaeaea;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+    }
+
+    #catalog {
+      padding: 2rem;
+    }
+
+    .filters {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid #111;
+      background: none;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .filter-btn:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      filter: brightness(100%);
+      transition: filter 0.3s;
+    }
+
+    .product-card:hover img {
+      filter: brightness(85%);
+    }
+
+    .product-card h3 {
+      margin: 0.5rem 0 0.25rem;
+    }
+
+    .product-card .price {
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+
+    .add-to-cart {
+      background: #111;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .add-to-cart:hover {
+      background: #333;
+    }
+
+    footer {
+      background-color: #fff;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .cart {
+      position: fixed;
+      top: 80px;
+      left: 20px;
+      background: #fff;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      width: 250px;
+      z-index: 2000;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #close-cart {
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #close-cart:hover {
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <div class="logo">Nirwave</div>
+    <nav>
+      <a href="#home">Дім</a>
+      <a href="#catalog">Каталог</a>
+      <a href="about.html">Про нас</a>
+      <a href="#contacts">Контакти</a>
+      <button id="cart-btn">Кошик</button>
+    </nav>
+  </header>
+
+  <!-- Головна сторінка -->
+  <section id="home" class="hero">
+    <h1>Стиль у простоті</h1>
+    <p>Streetwear & Мінімалізм</p>
+  </section>
+
+  <!-- Каталог -->
+  <section id="catalog">
+    <h2>Каталог</h2>
+    <div class="filters">
+      <button class="filter-btn" data-category="all">Всі</button>
+      <button class="filter-btn" data-category="hoodie">Худі</button>
+      <button class="filter-btn" data-category="tshirt">Футболки</button>
+      <button class="filter-btn" data-category="pants">Штани</button>
+      <button class="filter-btn" data-category="accessory">Аксесуари</button>
+      <button class="filter-btn" data-category="bracelet">Браслети</button>
+    </div>
+    <div class="product-grid">
+      <!-- Приклади товарів (заміниш пізніше) -->
+      <div class="product-card" data-category="hoodie">
+        <img src="img/placeholder.jpg" alt="Товар 1" />
+        <h3>Назва товару</h3>
+        <p class="price">₴1200</p>
+        <button class="add-to-cart">Додати в кошик</button>
+      </div>
+      <!-- Додай ще 5 таких -->
+    </div>
+  </section>
+
+  <!-- Контакти -->
+  <footer id="contacts">
+    <h2>Контакти</h2>
+    <p>Email: info@nirwave.com</p>
+    <p>Instagram: @nirwave</p>
+  </footer>
+
+  <!-- Випливаючий кошик -->
+  <div id="cart" class="cart hidden">
+    <h3>Кошик</h3>
+    <ul id="cart-items"></ul>
+    <p>Разом: <span id="cart-total">₴0</span></p>
+    <button id="close-cart">Закрити</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

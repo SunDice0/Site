@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nirwave</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <div class="logo">Nirwave</div>
+    <nav>
+      <a href="#home">Дім</a>
+      <a href="#catalog">Каталог</a>
+      <a href="about.html">Про нас</a>
+      <a href="#contacts">Контакти</a>
+      <button id="cart-btn">Кошик</button>
+    </nav>
+  </header>
+
+  <!-- Головна сторінка -->
+  <section id="home" class="hero">
+    <h1>Стиль у тобі</h1>
+    <p>Streetwear & Мінімалізм</p>
+  </section>
+
+  <!-- Каталог -->
+  <section id="catalog">
+    <h2>Каталог</h2>
+    <div class="filters">
+      <button class="filter-btn" data-category="all">Всі</button>
+      <button class="filter-btn" data-category="hoodie">Худі</button>
+      <button class="filter-btn" data-category="tshirt">Футболки</button>
+      <button class="filter-btn" data-category="pants">Штани</button>
+      <button class="filter-btn" data-category="accessory">Аксесуари</button>
+      <button class="filter-btn" data-category="bracelet">Браслети</button>
+    </div>
+    <div class="product-grid">
+      <!-- Приклади товарів -->
+      <div class="product-card" data-category="pants">
+        <img src="img/placeholder.jpg" alt="Штани з емблемою" />
+        <h3>Штани</h3>
+        <p class="price">₴1200</p>
+        <button class="add-to-cart">Додати в кошик</button>
+      </div>
+      <div class="product-card" data-category="hoodie">
+        <img src="img/placeholder.jpg" alt="Худі з емблемою" />
+        <h3>Худі</h3>
+        <p class="price">₴2500</p>
+        <button class="add-to-cart">Додати в кошик</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакти -->
+  <footer id="contacts">
+    <h2>Контакти</h2>
+    <p>Email: info@nirwave.com</p>
+    <p>Instagram: @nirwave</p>
+  </footer>
+
+  <!-- Випливаючий кошик -->
+  <div id="cart" class="cart hidden">
+    <h3>Кошик</h3>
+    <ul id="cart-items"></ul>
+    <p>Разом: <span id="cart-total">₴0</span></p>
+    <button id="close-cart">Закрити</button>
+  </div>
+  <script>
+    const cartBtn = document.getElementById("cart-btn");
+    const cart = document.getElementById("cart");
+    const closeCart = document.getElementById("close-cart");
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+
+    let total = 0;
+
+    cartBtn.addEventListener("click", () => {
+      cart.classList.toggle("hidden");
+    });
+
+    closeCart.addEventListener("click", () => {
+      cart.classList.add("hidden");
+    });
+
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+      button.addEventListener("click", (e) => {
+        const product = e.target.closest(".product-card");
+        const name = product.querySelector("h3").innerText;
+        const priceText = product.querySelector(".price").innerText;
+        const price = parseInt(priceText.replace("₴", ""));
+
+        const li = document.createElement("li");
+        li.innerText = `${name} — ₴${price}`;
+        cartItems.appendChild(li);
+
+        total += price;
+        cartTotal.innerText = `₴${total}`;
+      });
+    });
+
+    document.querySelectorAll(".filter-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        const category = button.dataset.category;
+        document.querySelectorAll(".product-card").forEach(card => {
+          if (category === "all" || card.dataset.category === category) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
