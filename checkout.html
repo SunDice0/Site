@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Оплата - Nirwave</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Nirwave</div>
+    <nav>
+      <a href="index.html#home">Дім</a>
+      <a href="index.html#catalog">Каталог</a>
+      <a href="about.html">Про нас</a>
+      <a href="index.html#contacts">Контакти</a>
+      <button id="open-cart-btn" aria-label="Відкрити кошик">Кошик</button>
+    </nav>
+  </header>
+
+  <main style="padding: 2rem; max-width: 400px; margin: 0 auto;">
+    <h1>Оплата замовлення</h1>
+    <form id="checkout-form">
+      <label for="name">Ім'я та прізвище</label><br />
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="address">Адреса доставки</label><br />
+      <input type="text" id="address" name="address" required /><br /><br />
+
+      <label for="phone">Номер телефону</label><br />
+      <input type="tel" id="phone" name="phone" required pattern="[0-9+\-\s]{7,15}" /><br /><br />
+
+      <button type="submit">Отримати замовлення</button>
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('checkout-form');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if(form.checkValidity()) {
+        alert('Дякуємо за замовлення! Скоро ми з вами зв\'яжемося.');
+        window.location.href = 'index.html';
+      } else {
+        alert('Будь ласка, заповніть всі поля правильно.');
+      }
+    });
+  </script>
+</body>
+</html>
