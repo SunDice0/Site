@@ -1,11 +1,11 @@
 const products = [
-  {id: 1, category: 'hoodie', name: 'Худі чорне', price: 1200, img: 'img/hoodie1.jpg'},
-  {id: 2, category: 'hoodie', name: 'Худі сіре', price: 1100, img: 'img/hoodie2.jpg'},
-  {id: 3, category: 'tshirt', name: 'Футболка біла', price: 700, img: 'img/tshirt1.jpg'},
-  {id: 4, category: 'tshirt', name: 'Футболка чорна', price: 750, img: 'img/tshirt2.jpg'},
-  {id: 5, category: 'pants', name: 'Штани чорні', price: 1500, img: 'img/pants1.jpg'},
-  {id: 6, category: 'accessory', name: 'Кепка чорна', price: 400, img: 'img/accessory1.jpg'},
-  {id: 7, category: 'bracelet', name: 'Браслет шкіряний', price: 300, img: 'img/bracelet1.jpg'},
+  {id: 1, category: 'hoodie', name: 'Худі чорне', price: 1200, img: 'hoodie1.jpg'},
+  {id: 2, category: 'hoodie', name: 'Худі сіре', price: 1100, img: 'hoodie2.jpg'},
+  {id: 3, category: 'tshirt', name: 'Футболка біла', price: 700, img: 'tshirt1.jpg'},
+  {id: 4, category: 'tshirt', name: 'Футболка чорна', price: 750, img: 'tshirt2.jpg'},
+  {id: 5, category: 'pants', name: 'Штани чорні', price: 1500, img: 'pants1.jpg'},
+  {id: 6, category: 'accessory', name: 'Кепка чорна', price: 400, img: 'accessory1.jpg'},
+  {id: 7, category: 'bracelet', name: 'Браслет шкіряний', price: 300, img: 'bracelet1.jpg'},
 ];
 
 // --- Фільтрація каталогу ---
@@ -30,30 +30,66 @@ filterButtons.forEach(btn => {
 
 // --- Випадкові товари для слайдшоу "Товари дня" ---
 
-const dailyProductsSlider = document.querySelector('.daily-products-slider');
+// const dailyProductsSlider = document.querySelector('.daily-products-slider');
 
-function getRandomProducts(num = 4) {
-  const shuffled = [...products].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, num);
+// function getRandomProducts(num = 4) {
+//   const shuffled = [...products].sort(() => 0.5 - Math.random());
+//   return shuffled.slice(0, num);
+// }
+
+// function renderDailyProducts() {
+//   const randomProducts = getRandomProducts(4);
+//   dailyProductsSlider.innerHTML = '';
+//   randomProducts.forEach(p => {
+//     const card = document.createElement('div');
+//     card.className = 'product-card';
+//     card.style.minWidth = '200px';
+//     card.style.flex = '0 0 auto';
+//     card.innerHTML = `
+//       <img src="${p.img}" alt="${p.name}" />
+//       <h3>${p.name}</h3>
+//       <p class="price">₴${p.price}</p>
+//       <button class="add-to-cart" data-id="${p.id}">Додати в кошик</button>
+//     `;
+//     dailyProductsSlider.appendChild(card);
+//   });
+// }
+
+
+// Функція вибору випадкових товарів
+function getRandomProducts(arr, count) {
+  const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
 }
 
+// Додавання товарів у слайдер
 function renderDailyProducts() {
-  const randomProducts = getRandomProducts(4);
-  dailyProductsSlider.innerHTML = '';
-  randomProducts.forEach(p => {
+  const slider = document.getElementById('daily-products-slider');
+  slider.innerHTML = '';
+
+  const daily = getRandomProducts(products, 4);
+
+  daily.forEach(product => {
     const card = document.createElement('div');
     card.className = 'product-card';
-    card.style.minWidth = '200px';
-    card.style.flex = '0 0 auto';
     card.innerHTML = `
-      <img src="${p.img}" alt="${p.name}" />
-      <h3>${p.name}</h3>
-      <p class="price">₴${p.price}</p>
-      <button class="add-to-cart" data-id="${p.id}">Додати в кошик</button>
+      <img src="${product.img}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <div class="price">${product.price}</div>
+      <button class="add-to-cart">До кошика</button>
     `;
-    dailyProductsSlider.appendChild(card);
+    slider.appendChild(card);
   });
 }
+
+// Викликаємо при завантаженні сторінки
+document.addEventListener('DOMContentLoaded', () => {
+  renderDailyProducts();
+});
+
+
+
+
 
 // --- Кошик ---
 
@@ -80,6 +116,7 @@ function updateCart() {
     total += item.price;
   });
   cartTotal.textContent = `₴${total}`;
+  cart.classList.remove('hidden');
 }
 
 // Додати товар у кошик

@@ -5,6 +5,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Про нас - Nirwave</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background: #ffffff;
+      padding: 1rem 2rem;
+      color: rgb(170, 170, 170);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+    header nav a {
+      color: rgb(0, 0, 0);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    header nav a.active,
+    header nav a:hover {
+      color: #000000;
+    }
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.8rem;
+      color: #333;
+      letter-spacing: 1px;
+    }
+    .section {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      align-items: center;
+    }
+    .section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .section img {
+      max-width: 50%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+      object-fit: cover;
+      height: 300px;
+    }
+    .section .text {
+      max-width: 50%;
+      font-size: 1.1rem;
+      color: #444;
+    }
+    .section .text h2 {
+      margin-bottom: 0.8rem;
+      font-size: 1.8rem;
+      color: #222;
+    }
+    .section .text p {
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column !important;
+      }
+      .section img, .section .text {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,11 +102,85 @@
     </nav>
   </header>
 
-  <main style="padding: 2rem;">
+  <main>
     <h1>Про нас</h1>
-    <p>Цей сайт створений у 2025 році для продажу мінімалістичного streetwear одягу.</p>
-    <p>Мета сайту — дати клієнтам стильні та комфортні товари за доступними цінами.</p>
-    <p>Ми прагнемо до якості і простоти в кожному дизайні.</p>
+
+    <section class="section">
+      <div class="text">
+        <h2>Наша історія</h2>
+        <p>
+          Nirwave народився у 2025 році як відповідь на потребу поєднати стильний вуличний одяг із мінімалістичним дизайном. Ми почали як невеликий стартап із великою мрією — створювати не просто одяг, а спосіб самовираження для молоді, яка цінує комфорт і індивідуальність.
+        </p>
+        <p>
+          Наш шлях почався з простих худі та футболок, а зараз ми пропонуємо повний спектр streetwear-одягу і аксесуарів, виготовлених з якісних матеріалів та з любов’ю до деталей.
+        </p>
+      </div>
+      <img src="img/history.jpg" alt="Наша історія" />
+    </section>
+
+    <section class="section">
+      <img src="img/quality.jpg" alt="Якість продукції" />
+      <div class="text">
+        <h2>Якість і матеріали</h2>
+        <p>
+          Ми дуже серйозно ставимося до вибору тканин і матеріалів. Кожен виріб проходить строгий контроль якості, щоб ви могли насолоджуватися довговічністю та комфортом.
+        </p>
+        <p>
+          Для виробництва ми використовуємо натуральні бавовняні тканини з еко-сертифікатами, а також сучасні технології пошиття, які гарантують зручність і довгий термін служби.
+        </p>
+        <p>
+          Ми віримо, що хороший одяг повинен не тільки виглядати стильно, а й бути комфортним у щоденному використанні.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="text">
+        <h2>Наші цінності</h2>
+        <p>
+          Nirwave — це не просто бренд, це спільнота однодумців, які цінують свободу, творчість і унікальність. Ми підтримуємо ідею сталого розвитку та соціальної відповідальності.
+        </p>
+        <p>
+          Ми прагнемо зменшити вплив на довкілля через вибір екологічних матеріалів, підтримку локальних виробників та мінімалізм у дизайні, що сприяє довговічності речей.
+        </p>
+        <p>
+          У наших колекціях ви не знайдете зайвих деталей — лише чисті лінії, які підкреслюють ваш стиль і настрій.
+        </p>
+      </div>
+      <img src="img/values.jpg" alt="Наші цінності" />
+    </section>
+
+    <section class="section">
+      <img src="img/team.jpg" alt="Наша команда" />
+      <div class="text">
+        <h2>Команда Nirwave</h2>
+        <p>
+          За брендом стоїть невелика, але дуже згуртована команда молодих дизайнерів, маркетологів та виробничників, які закохані у свою справу.
+        </p>
+        <p>
+          Ми працюємо над тим, щоб кожен продукт був результатом співпраці, креативності та прагнення до досконалості.
+        </p>
+        <p>
+          Наші колеги не бояться експериментувати з формою та кольорами, тому у колекціях Nirwave завжди є цікаві акценти, які відрізняють нас від інших брендів.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="text">
+        <h2>Співпраця і майбутнє</h2>
+        <p>
+          Ми відкриті до співпраці з іншими креативними людьми — художниками, музикантами, фотографами. Nirwave — це платформа для творчості.
+        </p>
+        <p>
+          У майбутньому ми плануємо розширювати асортимент, включати колекції унікальних речей із обмеженим тиражем та розвивати екологічні ініціативи.
+        </p>
+        <p>
+          Запрошуємо вас стати частиною Nirwave, виражати себе та надихатися кожного дня разом із нами!
+        </p>
+      </div>
+      <img src="img/future.jpg" alt="Майбутнє Nirwave" />
+    </section>
   </main>
 
   <script src="script.js"></script>
