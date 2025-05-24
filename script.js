@@ -4,8 +4,11 @@ const products = [
   {id: 3, category: 'tshirt', name: 'Футболка біла', price: 700, img: 'tshirt1.jpg'},
   {id: 4, category: 'tshirt', name: 'Футболка чорна', price: 750, img: 'tshirt2.jpg'},
   {id: 5, category: 'pants', name: 'Штани чорні', price: 1500, img: 'pants1.jpg'},
-  {id: 6, category: 'accessory', name: 'Кепка чорна', price: 400, img: 'accessory1.jpg'},
-  {id: 7, category: 'bracelet', name: 'Браслет шкіряний', price: 300, img: 'bracelet1.jpg'},
+  {id: 6, category: 'pants', name: 'Штани білі', price: 1800, img: 'pants2.jpg'},
+  {id: 7, category: 'accessory', name: 'Кепка чорна', price: 400, img: 'accessory1.jpg'},
+  {id: 8, category: 'accessory', name: 'Шапка біла', price: 700, img: 'accessory2.jpg'},
+  {id: 9, category: 'bracelet', name: 'Браслет шкіряний', price: 300, img: 'bracelet1.jpg'},
+  {id: 10, category: 'bracelet', name: 'Браслет металевий', price: 500, img: 'bracelet2.jpg'},
 ];
 
 // --- Фільтрація каталогу ---
